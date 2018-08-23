@@ -1,0 +1,28 @@
+{
+  "name": "dbmaster",
+  "version": "0.0.1",
+  "description": "This plugin allows bridging to Saletools database on Android.",
+  "cordova": {
+    "id": "dbmaster",
+    "platforms": [
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sarunphat/dbmaster.git"
+  },
+  "keywords": [
+    "Database",
+    "Bridging",
+    "Android",
+    "ecosystem:cordova",
+    "cordova-android"
+  ],
+  "author": "Sarunphat Pisutvimol",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Sarunphat/dbmaster/issues"
+  },
+  "homepage": "https://github.com/Sarunphat/dbmaster#readme"
+}
