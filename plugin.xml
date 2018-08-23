@@ -1,0 +1,37 @@
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="dbmaster"
+        version="0.0.1">
+
+    <name>DBMaster</name>
+
+    <description>This plugin allows bridging to Saletools database on Android.</description>
+    
+    <keywords>Database,Bridging,Android</keywords>
+
+    <license>Apache 2.0</license>
+
+    <js-module src="www/DBMaster.js" name="DBMaster">
+        <clobbers target="DBMaster" />
+    </js-module>
+
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="DBMaster">
+                <param name="android-package" value="com.mfec.dbmaster.DBMaster"/>
+            </feature>
+        </config-file>
+        <framework src="com.squareup.retrofit2:retrofit:2.3.0" />
+        <framework src="com.squareup.retrofit2:converter-gson:2.3.0" />
+        <framework src="com.squareup.okhttp3:logging-interceptor:3.7.0" />
+        <framework src="com.afollestad.material-dialogs:core:0.9.6.0" />
+        <framework src="com.facebook.stetho:stetho:1.5.0" />
+        <framework src="src/android/DBMaster.gradle" custom="true" type="gradleReference" />
+
+        <source-file src="src/android/DBMaster.java" target-dir="src/com/mfec/dbmaster" />
+        
+        <resource-file src="aar/DBMaster.aar" target="aar/DBMaster.aar" />
+
+
+    </platform>
+</plugin>
