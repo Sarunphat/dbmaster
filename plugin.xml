@@ -9,7 +9,7 @@
     
     <keywords>Database,Bridging,Android</keywords>
 
-    <license>Apache 2.0</license>
+    <license>MIT</license>
 
     <js-module src="www/DBMaster.js" name="DBMaster">
         <clobbers target="DBMaster" />
