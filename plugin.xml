@@ -30,7 +30,7 @@
 
         <source-file src="src/android/DBMaster.java" target-dir="src/com/mfec/dbmaster" />
         
-        <resource-file src="aar/DBMaster.aar" target="aar/DBMaster.aar" />
+        <resource-file src="aar/DBMaster.aar" target="libs/DBMaster.aar" />
 
 
     </platform>
