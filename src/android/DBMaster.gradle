@@ -6,7 +6,7 @@ repositories{
 }
 
 dependencies {
-  compile(name:'DBMaster', ext:'aar')
+  //compile(name:'DBMaster', ext:'aar')
 }
 
 android {

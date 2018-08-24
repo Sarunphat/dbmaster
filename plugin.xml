@@ -16,6 +16,7 @@
     </js-module>
 
     <platform name="android">
+        <source-file src="src/android/DBMaster.java" target-dir="src/com/mfec/dbmaster" />
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="DBMaster">
                 <param name="android-package" value="com.mfec.dbmaster.DBMaster"/>
@@ -27,11 +28,7 @@
         <framework src="com.afollestad.material-dialogs:core:0.9.6.0" />
         <framework src="com.facebook.stetho:stetho:1.5.0" />
         <framework src="src/android/DBMaster.gradle" custom="true" type="gradleReference" />
-
-        <source-file src="src/android/DBMaster.java" target-dir="src/com/mfec/dbmaster" />
         
-        <resource-file src="aar/DBMaster.aar" target="libs/DBMaster.aar" />
-
-
+        <!--<resource-file src="aar/DBMaster.aar" target="aar/DBMaster.aar" />-->
     </platform>
 </plugin>
