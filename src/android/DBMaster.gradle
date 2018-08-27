@@ -1,12 +1,9 @@
 repositories{    
   jcenter()
-  flatDir {
-      dirs 'aar'
-   }
 }
 
 dependencies {
-  //compile(name:'DBMaster', ext:'aar')
+  compile(name:'DBMaster', ext:'aar')
 }
 
 android {
