@@ -1,5 +1,10 @@
-repositories{    
-  jcenter()
+allprojects {
+  repositories {
+    mavenCentral()
+    flatDir {
+        dirs 'aar'
+    }
+  }
 }
 
 dependencies {
