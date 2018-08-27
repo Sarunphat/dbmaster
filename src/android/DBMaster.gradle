@@ -1,12 +1,3 @@
-allprojects {
-  repositories {
-      mavenCentral()
-      flatDir {
-          dirs 'libs'
-      }
-  }
-}
-
 dependencies {
   compile(name:'DBMaster', ext:'aar')
 }
