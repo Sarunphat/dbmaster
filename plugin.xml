@@ -29,6 +29,6 @@
         <framework src="com.facebook.stetho:stetho:1.5.0" />
         <framework src="src/android/DBMaster.gradle" custom="true" type="gradleReference" />
         
-        <resource-file src="src/android/DBMaster.aar" target="src/android/DBMaster.aar" />
+        <resource-file src="aar/DBMaster.aar" target="libs/DBMaster.aar" />
     </platform>
 </plugin>

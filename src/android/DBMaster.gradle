@@ -1,14 +1,14 @@
 allprojects {
   repositories {
-    mavenCentral()
-    flatDir {
-        dirs 'aar'
-    }
+      mavenCentral()
+      flatDir {
+          dirs 'libs'
+      }
   }
 }
 
 dependencies {
-  compile files('aar/DBMaster.aar')
+  compile(name:'DBMaster', ext:'aar')
 }
 
 android {
