@@ -8,7 +8,7 @@ allprojects {
 }
 
 dependencies {
-  compile(name:'DBMaster', ext:'aar')
+  compile files('aar/DBMaster.aar')
 }
 
 android {
