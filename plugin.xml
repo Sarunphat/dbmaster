@@ -16,10 +16,10 @@
     </js-module>
 
     <platform name="android">
-        <source-file src="src/android/DBMaster.java" target-dir="src/com/mfec/dbmaster" />
+        <source-file src="src/android/DBMasterPlugin.java" target-dir="src/com/mfec/dbmaster" />
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="DBMaster">
-                <param name="android-package" value="com.mfec.dbmaster.DBMaster"/>
+            <feature name="DBMasterPlugin">
+                <param name="android-package" value="com.mfec.dbmaster.DBMasterPlugin"/>
             </feature>
         </config-file>
         <framework src="com.squareup.retrofit2:retrofit:2.3.0" />
