@@ -5,6 +5,8 @@ import org.apache.cordova.CordovaPlugin;
 import org.json.JSONArray;
 import org.json.JSONException;
 
+import mobileapp.com.dbm.DBMaster;
+
 public class DBMaster extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
@@ -16,6 +18,7 @@ public class DBMaster extends CordovaPlugin {
     }
 
     private boolean load() {
+        DBMaster.instance.getMasterDB(this.cordova.getActivity().getApplicationContext());
         return true;
     }
 
