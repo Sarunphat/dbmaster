@@ -18,7 +18,7 @@ public class DBMaster extends CordovaPlugin {
     }
 
     private boolean load() {
-        DBMaster.instance.getMasterDB(this.cordova.getActivity().getApplicationContext());
+        DBMaster.Companion.getInstance().getMasterDB(this.cordova.getActivity().getApplicationContext());
         return true;
     }
 
