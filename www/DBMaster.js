@@ -3,7 +3,7 @@ var dbMaster = {
         cordova.exec(
             successCallback,
             errorCallback,
-            "DBMaster",
+            "DBMasterPlugin",
             "dbMaster"
         );
     }

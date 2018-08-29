@@ -11,7 +11,7 @@ public class DBMasterPlugin extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
         if(action.equals("dbMaster")) {
-            this.loadDatabase(callbackContext);
+            // this.loadDatabase(callbackContext);
             return true;
         }
         return false;
@@ -23,11 +23,11 @@ public class DBMasterPlugin extends CordovaPlugin {
     }
 
     private void loadDatabase(CallbackContext callbackContext) {
-        if(load()) {
-            callbackContext.success();
-        } else {
-            callbackContext.error("");
-        }
+        // if(load()) {
+        //     callbackContext.success();
+        // } else {
+        //     callbackContext.error("");
+        // }
     }
 }
 
