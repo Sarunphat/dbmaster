@@ -16,19 +16,32 @@
     </js-module>
 
     <platform name="android">
-        <source-file src="src/android/DBMasterPlugin.java" target-dir="src/com/mfec/dbmaster" />
+        <!-- Add Kotlin support -->
+        <hook type="after_plugin_add" src="hooks/support-kotlin.js" />
+        <hook type="after_platform_add" src="hooks/support-kotlin.js" />
+        <framework src="org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.2.31" />
+        <apply-plugin>kotlin-android-extensions</apply-plugin>
+        <apply-plugin>kotlin-kapt</apply-plugin>
+
+        <!-- Cleanup Kotlin source on uninstall -->
+        <hook type="before_plugin_rm" src="hooks/on-uninstall.js" />
+        <hook type="before_plugin_uninstall" src="hooks/on-uninstall.js" />
+        
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="DBMasterPlugin">
                 <param name="android-package" value="com.mfec.dbmaster.DBMasterPlugin"/>
             </feature>
         </config-file>
+            
         <framework src="com.squareup.retrofit2:retrofit:2.3.0" />
         <framework src="com.squareup.retrofit2:converter-gson:2.3.0" />
         <framework src="com.squareup.okhttp3:logging-interceptor:3.7.0" />
         <framework src="com.afollestad.material-dialogs:core:0.9.6.0" />
         <framework src="com.facebook.stetho:stetho:1.5.0" />
-        <framework src="src/android/DBMaster.gradle" custom="true" type="gradleReference" />
+        <framework src="src/DBMaster.gradle" custom="true" type="gradleReference" />
         
-        <resource-file src="src/android/DBMaster.aar" target="libs/DBMaster.aar" />
+        <resource-file src="src/DBMaster.aar" target="libs/DBMaster.aar" />
+        <source-file src="src/DBMasterPlugin.java" target-dir="src/com/mfec/dbmaster" />
+        <source-file src="src/DBMasterPlugin.java" target-dir="src/com/mfec/dbmaster" />
     </platform>
 </plugin>
