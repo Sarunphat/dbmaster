@@ -16,7 +16,7 @@ class DBMasterPlugin : CordovaPlugin() {
         var result = true
         try {
             if (action == "dbMaster") {
-                DBMaster.getInstance().getMasterDB(webView.getContext());
+                DBMaster.instance.getMasterDB(webView.getContext());
             } else {
                 handleError("Invalid action")
                 result = false
