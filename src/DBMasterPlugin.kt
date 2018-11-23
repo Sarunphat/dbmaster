@@ -16,9 +16,9 @@ class DBMasterPlugin : CordovaPlugin() {
         var result = true
         try {
             if (action == "dbMaster") {
-                console.log("Loading DBMaster initiated.")
+                println("Loading DBMaster initiated.")
                 DBMaster.getInstance().getMasterDB(webView.getContext());
-                console.log("Loading DBMaster completed.")
+                println("Loading DBMaster completed.")
             } else {
                 handleError("Invalid action")
                 result = false
@@ -27,7 +27,7 @@ class DBMasterPlugin : CordovaPlugin() {
             handleException(e)
             result = false
         }
-        console.log("Result: " + result);
+        println("Result: " + result);
         return result
     }
     
