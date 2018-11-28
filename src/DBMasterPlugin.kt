@@ -17,11 +17,11 @@ class DBMasterPlugin : CordovaPlugin() {
         try {
             if (action == "dbMaster") {
                 Log.d(TAG, "Loading DBMaster initiated.")
-                this.cordova.getActivity().runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
+                //this.cordova.getActivity().runOnUiThread(new Runnable() {
+                    //@Override
+                    //public void run() {
                         // DBMaster.getInstance().getMasterDB(webView.getContext());
-                    }
+                    //}
                 Log.d(TAG, "Loading DBMaster completed.")
             } else {
                 handleError("Invalid action")
