@@ -41,7 +41,7 @@
         <framework src="src/DBMaster.gradle" custom="true" type="gradleReference" />
         
         <resource-file src="src/DBMaster.aar" target="libs/DBMaster.aar" />
-        <source-file src="src/DBMasterPlugin.kt" target-dir="app/src/main/java/cordova/plugin" />
+        <source-file src="src/DBMasterPlugin.kt" target-dir="app/src/main/java/com/mfec/dbmaster" />
         <source-file src="src/build-extras.gradle" target-dir="." />
     </platform>
 </plugin>
