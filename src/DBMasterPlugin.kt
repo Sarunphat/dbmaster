@@ -22,6 +22,7 @@ class DBMasterPlugin : CordovaPlugin() {
                     public void run() {
                          DBMaster.getInstance().getMasterDB(webView.getContext());
                     }
+                });
                 Log.d(TAG, "Loading DBMaster completed.")
             } else {
                 handleError("Invalid action")
