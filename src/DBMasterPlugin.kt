@@ -4,6 +4,7 @@ import org.apache.cordova.*;
 import org.json.JSONArray;
 import org.json.JSONException;
 import android.util.Log;
+import com.facebook.stetho.Stetho;
 
 import mobileapp.com.dbm.DBMaster;
 
