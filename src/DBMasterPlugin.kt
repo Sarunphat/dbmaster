@@ -17,6 +17,7 @@ class DBMasterPlugin : CordovaPlugin() {
         try {
             if (action == "dbMaster") {
                 DBMaster.getInstance().getMasterDB(webView.getContext());
+                Stetho.initializeWithDefaults(webView.getContext());
                 callbackContext.success();
             } else {
                 handleError("Invalid action")
