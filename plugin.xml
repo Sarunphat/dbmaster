@@ -38,6 +38,7 @@
         <framework src="com.squareup.okhttp3:logging-interceptor:3.10.0" />
         <framework src="com.afollestad.material-dialogs:core:0.9.6.0" />
         <framework src="com.facebook.stetho:stetho:1.5.0" />
+        <framework src="org.jetbrains.anko:anko-sqlite:0.10.0" />
         <framework src="src/DBMaster.gradle" custom="true" type="gradleReference" />
         
         <resource-file src="src/DBMaster.aar" target="libs/DBMaster.aar" />
