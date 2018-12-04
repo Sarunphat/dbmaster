@@ -19,6 +19,8 @@ class DBMasterPlugin : CordovaPlugin() {
             if (action == "dbMaster") {
                 DBMaster.getInstance().getMasterDB(webView.getContext());
                 Stetho.initializeWithDefaults(webView.getContext());
+                var database: MySqlHelper
+                    get() = MySqlHelper.getInstance(applicationContext);
                 callbackContext.success();
             } else {
                 handleError("Invalid action")
@@ -54,5 +56,26 @@ class DBMasterPlugin : CordovaPlugin() {
     companion object {
 
         protected val TAG = "DBMasterPlugin"
+    }
+}
+
+class MySqlHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "MasterData.db") {
+ 
+    companion object {
+        private var instance: MySqlHelper? = null
+ 
+        @Synchronized
+        fun getInstance(ctx: Context): MySqlHelper {
+            if (instance == null) {
+                instance = MySqlHelper(ctx.applicationContext)
+            }
+            return instance!!
+        }
+    }
+ 
+    override fun onCreate(db: SQLiteDatabase) {
+    }
+ 
+    override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
     }
 }
