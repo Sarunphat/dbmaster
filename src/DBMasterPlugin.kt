@@ -7,6 +7,7 @@ import android.util.Log;
 import com.facebook.stetho.Stetho;
 
 import mobileapp.com.dbm.DBMaster;
+import mobileapp.com.dbm.DBMasterCallback;
 
 class DBMasterPlugin : CordovaPlugin() {
     lateinit var context: CallbackContext
@@ -19,7 +20,7 @@ class DBMasterPlugin : CordovaPlugin() {
             if (action == "dbMaster") {
                 DBMaster.getInstance().getMasterDB(webView.getContext(), object : DBMasterCallback() {
                     override fun OnSuccess() {
-                        val database: MyDatabaseOpenHelper = MyDatabaseOpenHelper.getInstance(context)
+                        val database: MyDatabaseOpenHelper = MyDatabaseOpenHelper.getInstance(webView.getContext())
                         val rowParser = classParser<Occupation>()
                         val temp = database.use {
                             select("MdOccupations").parseList(rowParser)
