@@ -17,11 +17,20 @@ class DBMasterPlugin : CordovaPlugin() {
         var result = true
         try {
             if (action == "dbMaster") {
-                DBMaster.getInstance().getMasterDB(webView.getContext());
+                DBMaster.getInstance().getMasterDB(webView.getContext(), object : DBMasterCallback() {
+                    override fun OnSuccess() {
+                        val database: MyDatabaseOpenHelper = MyDatabaseOpenHelper.getInstance(context)
+                        val rowParser = classParser<Occupation>()
+                        val temp = database.use {
+                            select("MdOccupations").parseList(rowParser)
+                        }
+                        callbackContext.success(temp);
+                    }
+                    override fun OnError() {
+                        result = false
+                    }
+                });
                 Stetho.initializeWithDefaults(webView.getContext());
-                var database: MySqlHelper
-                    get() = MySqlHelper.getInstance(applicationContext);
-                callbackContext.success();
             } else {
                 handleError("Invalid action")
                 result = false
@@ -54,28 +63,46 @@ class DBMasterPlugin : CordovaPlugin() {
     }
 
     companion object {
-
         protected val TAG = "DBMasterPlugin"
     }
 }
 
-class MySqlHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "MasterData.db") {
- 
+class MyDatabaseOpenHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "MasterData.db", null, 1) {
     companion object {
-        private var instance: MySqlHelper? = null
- 
+        private var instance: MyDatabaseOpenHelper? = null
+
         @Synchronized
-        fun getInstance(ctx: Context): MySqlHelper {
+        fun getInstance(ctx: Context): MyDatabaseOpenHelper {
             if (instance == null) {
-                instance = MySqlHelper(ctx.applicationContext)
+                instance = MyDatabaseOpenHelper(ctx.getApplicationContext())
             }
             return instance!!
         }
     }
- 
+
     override fun onCreate(db: SQLiteDatabase) {
+        db.createTable("MdOccupations", true,
+                "rowid" to INTEGER + PRIMARY_KEY + UNIQUE,
+                "Code" to TEXT,
+                "Created" to TEXT,
+                "CreatedBy" to TEXT,
+                "GroupDescEn" to TEXT,
+                "GroupDescTh" to TEXT,
+                "HiRate" to REAL,
+                "IsActive" to INTEGER,
+                "NameEn" to TEXT,
+                "NameTh" to TEXT,
+                "OccuClass" to INTEGER,
+                "PAOccuClass" to INTEGER,
+                "Updated" to TEXT,
+                "UpdatedBy" to TEXT
+                )
     }
- 
+
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
     }
 }
+
+data class Occupation (val Code: String, val Created: String?, val CreatedBy: String?, val GroupDescEn: String,
+                  val GroupDescTh: String, val HiRate: Float, val IsActive: Boolean, val NameEn: String,
+                  val NameTh: String, val OccuClass: Int, val PAOccuClass: Int, val Updated: String?, val UpdatedBy: String?)
