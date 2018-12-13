@@ -1,16 +1,18 @@
-package com.mfec.dbmaster;
+package com.mfec.dbmaster
 
-import org.apache.cordova.*;
-import org.json.JSONArray;
-import org.json.JSONException;
-import com.facebook.stetho.Stetho;
+import org.apache.cordova.*
+import org.json.JSONArray
+import org.json.JSONException
 import org.jetbrains.anko.db.*
+
+import com.facebook.stetho.Stetho
+import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log;
+import android.util.Log
 
 import mobileapp.com.dbm.DBMaster
 import mobileapp.com.dbm.DBMasterCallback
@@ -31,7 +33,8 @@ class DBMasterPlugin : CordovaPlugin() {
                         val temp = database.use {
                             select("MdOccupations").parseList(rowParser)
                         }
-                        callbackContext.success(temp);
+                        val mapper = jacksonObjectMapper()
+                        callbackContext.success(mapper.writeValueAsString(temp));
                     }
                     override fun OnError() {
                         result = false
