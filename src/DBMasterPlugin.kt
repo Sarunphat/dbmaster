@@ -3,11 +3,17 @@ package com.mfec.dbmaster;
 import org.apache.cordova.*;
 import org.json.JSONArray;
 import org.json.JSONException;
-import android.util.Log;
 import com.facebook.stetho.Stetho;
+import org.jetbrains.anko.db.*
 
-import mobileapp.com.dbm.DBMaster;
-import mobileapp.com.dbm.DBMasterCallback;
+import android.content.Context
+import android.database.sqlite.SQLiteDatabase
+import android.support.v7.app.AppCompatActivity
+import android.os.Bundle
+import android.util.Log;
+
+import mobileapp.com.dbm.DBMaster
+import mobileapp.com.dbm.DBMasterCallback
 
 class DBMasterPlugin : CordovaPlugin() {
     lateinit var context: CallbackContext
