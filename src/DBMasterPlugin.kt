@@ -34,13 +34,15 @@ class DBMasterPlugin : CordovaPlugin() {
                             select("MdOccupations").parseList(rowParser)
                         }
                         val mapper = jacksonObjectMapper()
-                        callbackContext.success(mapper.writeValueAsString(temp));
+                        callbackContext.success(mapper.writeValueAsString(temp))
                     }
                     override fun OnError() {
                         result = false
                     }
                 });
-                Stetho.initializeWithDefaults(webView.getContext());
+                Stetho.initializeWithDefaults(webView.getContext())
+            } else if (action == "isLoading") {
+                callbackContext.success(DBMaster.getInstance().isGettingDBMaster)
             } else {
                 handleError("Invalid action")
                 result = false
