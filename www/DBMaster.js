@@ -6,6 +6,14 @@ var dbMaster = {
             "DBMasterPlugin",
             "dbMaster"
         );
+    },
+    isLoading: (successCallback, errorCallback) => {
+        cordova.exec(
+            successCallback,
+            errorCallback,
+            "DBMasterPlugin",
+            "isLoading"
+        );
     }
 }
 
