@@ -25,6 +25,7 @@ class DBMasterPlugin : CordovaPlugin() {
         context = callbackContext
         var result = true
         try {
+            Log.d("DBMaster", "DBMaster is called with action: " + action);
             if (action == "dbMaster") {
                 DBMaster.getInstance().getMasterDB(webView.getContext(), object : DBMasterCallback() {
                     override fun OnSuccess() {
