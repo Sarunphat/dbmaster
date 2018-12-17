@@ -43,7 +43,7 @@ class DBMasterPlugin : CordovaPlugin() {
                 });
                 Stetho.initializeWithDefaults(webView.getContext())
             } else if (action == "isLoading") {
-                Log.d("DBMaster", "isLoading is called.")
+                Log.d("DBMaster", "isLoading is called with result: " + DBMaster.getInstance().isGettingDBMaster)
                 callbackContext.success("" + DBMaster.getInstance().isGettingDBMaster)
             } else {
                 handleError("Invalid action")
