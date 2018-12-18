@@ -45,7 +45,7 @@ class DBMasterPlugin : CordovaPlugin() {
                 Stetho.initializeWithDefaults(webView.getContext())
             } else if (action == "isLoading") {
                 Log.d("DBMaster", "isLoading is called with result: " + DBMaster.getInstance().isGettingDBMaster)
-                JSONObject parameter = new JSONObject();
+                val parameter: JSONObject = JSONObject()
                 parameter.put("isLoading", DBMaster.getInstance().isGettingDBMaster);
                 callbackContext.success(parameter)
             } else {
