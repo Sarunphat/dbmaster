@@ -3,6 +3,7 @@ package com.mfec.dbmaster
 import org.apache.cordova.*
 import org.json.JSONArray
 import org.json.JSONException
+import org.json.JSONObject
 import org.jetbrains.anko.db.*
 
 import com.facebook.stetho.Stetho
@@ -43,9 +44,10 @@ class DBMasterPlugin : CordovaPlugin() {
                 });
                 Stetho.initializeWithDefaults(webView.getContext())
             } else if (action == "isLoading") {
-                Log.d("DBMaster", "isLoading is called with result: " + DBMaster.getInstance().isGettingDBMaster())
-                val isLoading: String = DBMaster.getInstance().isGettingDBMaster()
-                callbackContext.success(isLoading)
+                Log.d("DBMaster", "isLoading is called with result: " + DBMaster.getInstance().isGettingDBMaster)
+                JSONObject parameter = new JSONObject();
+                parameter.put("isLoading", DBMaster.getInstance().isGettingDBMaster);
+                callbackContext.success(parameter)
             } else {
                 handleError("Invalid action")
                 result = false
