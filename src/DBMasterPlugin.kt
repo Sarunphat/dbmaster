@@ -46,7 +46,7 @@ class DBMasterPlugin : CordovaPlugin() {
             } else if (action == "isLoading") {
                 val parameter: JSONObject = JSONObject()
                 parameter.put("isLoading", DBMaster.getInstance().isGettingDBMaster);
-                Log.d("DBMaster", parameter)
+                Log.d("DBMaster", parameter.toString())
                 callbackContext.success(parameter)
             } else {
                 handleError("Invalid action")
